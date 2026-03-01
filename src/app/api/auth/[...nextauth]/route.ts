@@ -33,28 +33,24 @@ function SupabaseAdapter(): any {
       return null;
     },
     async updateUser(user: { id: string; name?: string | null; emailVerified?: Date | null }) {
-      // Build update payload, only including fields that were provided
-      const updates: Record<string, unknown> = {};
-      if (user.name !== undefined) updates.name = user.name;
-      if (user.emailVerified !== undefined) updates.email_verified = user.emailVerified?.toISOString() ?? null;
-
-      // If no fields to update, just fetch and return the user
-      if (Object.keys(updates).length === 0) {
-        const { data, error } = await supabase.from("users").select("*").eq("id", user.id).single();
-        if (error) { console.error("updateUser supabase error:", error); throw new Error("updateUser failed: " + error.message); }
-      if (!data) throw new Error("User not found after update");
-        return { id: data.id, email: data.email, emailVerified: data.email_verified ? new Date(data.email_verified) : null, name: data.name };
+      // Only update actual DB columns (name). emailVerified is handled by JWT, not stored in DB.
+      if (user.name !== undefined) {
+        const { data, error } = await supabase
+          .from("users")
+          .update({ name: user.name })
+          .eq("id", user.id)
+          .select()
+          .single();
+        if (error) throw error;
+        if (!data) throw new Error("User not found");
+        return { id: data.id, email: data.email, emailVerified: user.emailVerified ?? null, name: data.name };
       }
 
-      const { data, error } = await supabase
-        .from("users")
-        .update(updates)
-        .eq("id", user.id)
-        .select()
-        .single();
-      if (error) { console.error("updateUser supabase error:", error); throw new Error("updateUser failed: " + error.message); }
-      if (!data) throw new Error("User not found after update");
-      return { id: data.id, email: data.email, emailVerified: data.email_verified ? new Date(data.email_verified) : null, name: data.name };
+      // No DB update needed (e.g. only emailVerified passed during email verification)
+      const { data, error } = await supabase.from("users").select("*").eq("id", user.id).single();
+      if (error) throw error;
+      if (!data) throw new Error("User not found");
+      return { id: data.id, email: data.email, emailVerified: user.emailVerified ?? null, name: data.name };
     },
     async linkAccount() {},
     async createSession() { return null; },
