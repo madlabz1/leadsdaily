@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
   await getResend().emails.send({
     from: process.env.RESEND_FROM_EMAIL!,
     to: email,
-    subject: "Verify your email for LeadGen",
+    subject: "Verify your email for LeadsDaily",
     html: `
       <div style="font-family: sans-serif; max-width: 400px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #111;">Verify your email</h2>

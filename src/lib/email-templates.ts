@@ -54,7 +54,7 @@ export function buildLeadDigestHtml(leads: Lead[], businessName: string): string
     </div>
 
     <p style="text-align: center; color: #999; font-size: 12px; margin-top: 16px;">
-      Sent by LeadGen &middot; <a href="${process.env.NEXTAUTH_URL}/dashboard/settings" style="color: #999;">Manage settings</a>
+      Sent by LeadsDaily &middot; <a href="${process.env.NEXTAUTH_URL}/dashboard/settings" style="color: #999;">Manage settings</a>
     </p>
   </div>
 </body>

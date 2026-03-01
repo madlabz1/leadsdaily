@@ -38,7 +38,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-8">
             <Link href="/dashboard" className="text-lg font-bold text-zinc-900 dark:text-zinc-50">
-              LeadGen
+              LeadsDaily
             </Link>
             <nav className="flex gap-1">
               {navItems.map((item) => (
