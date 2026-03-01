@@ -2,17 +2,15 @@ import NextAuth, { type NextAuthOptions } from "next-auth";
 import EmailProvider from "next-auth/providers/email";
 import { Resend } from "resend";
 import { supabase } from "@/lib/supabase";
-import type { Adapter } from "next-auth/adapters";
-import crypto from "crypto";
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
 }
 
-// Minimal adapter that handles verification tokens + user lookup via Supabase
-function SupabaseAdapter(): Adapter {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function SupabaseAdapter(): any {
   return {
-    async createUser(user) {
+    async createUser(user: { email: string; name?: string | null }) {
       const { data, error } = await supabase
         .from("users")
         .upsert({ email: user.email, name: user.name ?? null }, { onConflict: "email" })
@@ -21,12 +19,12 @@ function SupabaseAdapter(): Adapter {
       if (error) throw error;
       return { id: data.id, email: data.email, emailVerified: null, name: data.name };
     },
-    async getUser(id) {
+    async getUser(id: string) {
       const { data } = await supabase.from("users").select("*").eq("id", id).single();
       if (!data) return null;
       return { id: data.id, email: data.email, emailVerified: null, name: data.name };
     },
-    async getUserByEmail(email) {
+    async getUserByEmail(email: string) {
       const { data } = await supabase.from("users").select("*").eq("email", email).single();
       if (!data) return null;
       return { id: data.id, email: data.email, emailVerified: null, name: data.name };
@@ -34,7 +32,7 @@ function SupabaseAdapter(): Adapter {
     async getUserByAccount() {
       return null;
     },
-    async updateUser(user) {
+    async updateUser(user: { id: string; name?: string | null }) {
       const { data } = await supabase
         .from("users")
         .update({ name: user.name ?? undefined })
@@ -44,27 +42,30 @@ function SupabaseAdapter(): Adapter {
       if (!data) throw new Error("User not found");
       return { id: data.id, email: data.email, emailVerified: null, name: data.name };
     },
-    async linkAccount() { return undefined as never; },
-    async createSession() { return undefined as never; },
+    async linkAccount() {},
+    async createSession() { return null; },
     async getSessionAndUser() { return null; },
-    async updateSession() { return undefined as never; },
+    async updateSession() { return null; },
     async deleteSession() {},
-    async createVerificationToken({ identifier, expires }) {
-      const token = crypto.randomBytes(32).toString("hex");
+    async createVerificationToken(params: { identifier: string; token: string; expires: Date }) {
       const { data, error } = await supabase
         .from("verification_tokens")
-        .insert({ identifier, token, expires: expires.toISOString() })
+        .insert({
+          identifier: params.identifier,
+          token: params.token,
+          expires: params.expires.toISOString(),
+        })
         .select()
         .single();
       if (error) throw error;
       return { identifier: data.identifier, token: data.token, expires: new Date(data.expires) };
     },
-    async useVerificationToken({ identifier, token }) {
+    async useVerificationToken(params: { identifier: string; token: string }) {
       const { data, error } = await supabase
         .from("verification_tokens")
         .delete()
-        .eq("identifier", identifier)
-        .eq("token", token)
+        .eq("identifier", params.identifier)
+        .eq("token", params.token)
         .select()
         .single();
       if (error || !data) return null;
@@ -89,7 +90,7 @@ export const authOptions: NextAuthOptions = {
               <a href="${url}" style="display: inline-block; background: #111; color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; margin: 16px 0;">
                 Sign in
               </a>
-              <p style="color: #999; font-size: 14px;">If you didn't request this, you can ignore this email.</p>
+              <p style="color: #999; font-size: 14px;">If you didn&apos;t request this, you can ignore this email.</p>
             </div>
           `,
         });
@@ -97,7 +98,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async session({ session, token }) {
+    async session({ session }) {
       if (session.user?.email) {
         const { data } = await supabase
           .from("users")
