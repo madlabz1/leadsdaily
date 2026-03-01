@@ -124,12 +124,19 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async session({ session }) {
-      if (session.user?.email) {
-        const { data, error } = await supabase
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.email = user.email;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token?.email) {
+        const { data } = await supabase
           .from("users")
           .select("*")
-          .eq("email", session.user.email)
+          .eq("email", token.email as string)
           .single();
 
         if (data) {
