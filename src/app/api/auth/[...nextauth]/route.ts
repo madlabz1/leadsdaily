@@ -62,19 +62,29 @@ function SupabaseAdapter(): any {
     },
     async useVerificationToken(params: { identifier: string; token: string }) {
       // First fetch the token
-      const { data } = await supabase
+      const { data, error: selectError } = await supabase
         .from("verification_tokens")
         .select("*")
         .eq("identifier", params.identifier)
         .eq("token", params.token)
         .single();
-      if (!data) return null;
-      // Then delete it (single-use)
-      await supabase
+      if (selectError) {
+        console.error("useVerificationToken select error:", selectError);
+        return null;
+      }
+      if (!data) {
+        console.error("useVerificationToken: no token found for", params.identifier);
+        return null;
+      }
+      // Delete it (single-use)
+      const { error: deleteError } = await supabase
         .from("verification_tokens")
         .delete()
         .eq("identifier", params.identifier)
         .eq("token", params.token);
+      if (deleteError) {
+        console.error("useVerificationToken delete error:", deleteError);
+      }
       return { identifier: data.identifier, token: data.token, expires: new Date(data.expires) };
     },
   };
@@ -130,6 +140,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   secret: process.env.NEXTAUTH_SECRET,
+  debug: true,
 };
 
 const handler = NextAuth(authOptions);
