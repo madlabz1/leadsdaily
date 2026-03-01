@@ -32,15 +32,27 @@ function SupabaseAdapter(): any {
     async getUserByAccount() {
       return null;
     },
-    async updateUser(user: { id: string; name?: string | null }) {
+    async updateUser(user: { id: string; name?: string | null; emailVerified?: Date | null }) {
+      // Build update payload, only including fields that were provided
+      const updates: Record<string, unknown> = {};
+      if (user.name !== undefined) updates.name = user.name;
+      if (user.emailVerified !== undefined) updates.email_verified = user.emailVerified?.toISOString() ?? null;
+
+      // If no fields to update, just fetch and return the user
+      if (Object.keys(updates).length === 0) {
+        const { data } = await supabase.from("users").select("*").eq("id", user.id).single();
+        if (!data) throw new Error("User not found");
+        return { id: data.id, email: data.email, emailVerified: data.email_verified ? new Date(data.email_verified) : null, name: data.name };
+      }
+
       const { data } = await supabase
         .from("users")
-        .update({ name: user.name ?? undefined })
+        .update(updates)
         .eq("id", user.id)
         .select()
         .single();
       if (!data) throw new Error("User not found");
-      return { id: data.id, email: data.email, emailVerified: null, name: data.name };
+      return { id: data.id, email: data.email, emailVerified: data.email_verified ? new Date(data.email_verified) : null, name: data.name };
     },
     async linkAccount() {},
     async createSession() { return null; },
