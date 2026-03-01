@@ -124,9 +124,15 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
+    async signIn() {
+      return true;
+    },
+    async redirect({ baseUrl }: { url: string; baseUrl: string }) {
+      return `${baseUrl}/dashboard`;
+    },
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
+        token.sub = user.id;
         token.email = user.email;
       }
       return token;
