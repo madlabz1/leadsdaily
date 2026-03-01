@@ -20,12 +20,12 @@ function SupabaseAdapter(): any {
       return { id: data.id, email: data.email, emailVerified: null, name: data.name };
     },
     async getUser(id: string) {
-      const { data } = await supabase.from("users").select("*").eq("id", id).single();
+      const { data, error } = await supabase.from("users").select("*").eq("id", id).single();
       if (!data) return null;
       return { id: data.id, email: data.email, emailVerified: null, name: data.name };
     },
     async getUserByEmail(email: string) {
-      const { data } = await supabase.from("users").select("*").eq("email", email).single();
+      const { data, error } = await supabase.from("users").select("*").eq("email", email).single();
       if (!data) return null;
       return { id: data.id, email: data.email, emailVerified: null, name: data.name };
     },
@@ -40,18 +40,20 @@ function SupabaseAdapter(): any {
 
       // If no fields to update, just fetch and return the user
       if (Object.keys(updates).length === 0) {
-        const { data } = await supabase.from("users").select("*").eq("id", user.id).single();
-        if (!data) throw new Error("User not found");
+        const { data, error } = await supabase.from("users").select("*").eq("id", user.id).single();
+        if (error) { console.error("updateUser supabase error:", error); throw new Error("updateUser failed: " + error.message); }
+      if (!data) throw new Error("User not found after update");
         return { id: data.id, email: data.email, emailVerified: data.email_verified ? new Date(data.email_verified) : null, name: data.name };
       }
 
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from("users")
         .update(updates)
         .eq("id", user.id)
         .select()
         .single();
-      if (!data) throw new Error("User not found");
+      if (error) { console.error("updateUser supabase error:", error); throw new Error("updateUser failed: " + error.message); }
+      if (!data) throw new Error("User not found after update");
       return { id: data.id, email: data.email, emailVerified: data.email_verified ? new Date(data.email_verified) : null, name: data.name };
     },
     async linkAccount() {},
@@ -128,7 +130,7 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async session({ session }) {
       if (session.user?.email) {
-        const { data } = await supabase
+        const { data, error } = await supabase
           .from("users")
           .select("*")
           .eq("email", session.user.email)
