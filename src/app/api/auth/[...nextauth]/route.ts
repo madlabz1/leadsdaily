@@ -61,14 +61,20 @@ function SupabaseAdapter(): any {
       return { identifier: data.identifier, token: data.token, expires: new Date(data.expires) };
     },
     async useVerificationToken(params: { identifier: string; token: string }) {
-      const { data, error } = await supabase
+      // First fetch the token
+      const { data } = await supabase
+        .from("verification_tokens")
+        .select("*")
+        .eq("identifier", params.identifier)
+        .eq("token", params.token)
+        .single();
+      if (!data) return null;
+      // Then delete it (single-use)
+      await supabase
         .from("verification_tokens")
         .delete()
         .eq("identifier", params.identifier)
-        .eq("token", params.token)
-        .select()
-        .single();
-      if (error || !data) return null;
+        .eq("token", params.token);
       return { identifier: data.identifier, token: data.token, expires: new Date(data.expires) };
     },
   };
