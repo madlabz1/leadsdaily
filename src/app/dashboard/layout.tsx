@@ -39,8 +39,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-8">
             <Link href="/dashboard">
-              <Image src="/logo-dark.svg" alt="Leadsdaily" width={140} height={28} className="dark:hidden" />
-              <Image src="/logo.svg" alt="Leadsdaily" width={140} height={28} className="hidden dark:block" />
+              <Image src="/logo-dark.svg" alt="Leadsdaily" width={170} height={34} className="dark:hidden" />
+              <Image src="/logo.svg" alt="Leadsdaily" width={170} height={34} className="hidden dark:block" />
             </Link>
             <nav className="flex gap-1">
               {navItems.map((item) => (
