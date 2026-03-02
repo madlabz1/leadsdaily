@@ -1,24 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 50" fill="none">
-  <!-- Compass/Arrow Icon -->
-  <g transform="translate(2, 2)">
-    <!-- Outer circle arc - thick, dark, covers ~270 degrees from bottom-left around -->
-    <path d="M38 6.5C32.5 3 26 1.5 19.5 2.5C8.5 4.5 1 14 1 25c0 12.2 9.8 22 22 22 8.5 0 15.9-4.8 19.6-11.8" stroke="#27272a" stroke-width="5" stroke-linecap="round" fill="none"/>
-    <!-- Orange arc segment - top right portion -->
-    <path d="M42.6 13.2C39.8 7.5 34.5 3.5 28.5 2" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
-    <!-- Paper plane / compass arrow pointing upper-right -->
-    <!-- Orange top-right portion of arrow -->
-    <polygon points="35,9 23,23 27,21" fill="#f97316"/>
-    <polygon points="35,9 27,21 23,23" fill="#f97316"/>
-    <!-- Dark bottom-left portion of arrow -->
-    <polygon points="11,37 23,23 19,25" fill="#27272a"/>
-    <polygon points="11,37 19,25 23,23" fill="#27272a"/>
-    <!-- Orange small accent on arrow -->
-    <polygon points="35,9 23,23 21,19" fill="#f97316"/>
-    <!-- Dark accent on bottom arrow -->
-    <polygon points="11,37 23,23 25,27" fill="#27272a"/>
-  </g>
-  <!-- Text - dark version for light backgrounds -->
-  <text x="54" y="36" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="30" letter-spacing="-0.5">
-    <tspan fill="#18181b" font-weight="800">leads</tspan><tspan fill="#f97316" font-weight="400">daily</tspan>
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 50" fill="none">
+  <!-- Clock circle -->
+  <circle cx="25" cy="25" r="20" stroke="#18181b" stroke-width="3" fill="none"/>
+  <!-- Clock tick marks -->
+  <line x1="25" y1="7" x2="25" y2="10" stroke="#18181b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="25" y1="40" x2="25" y2="43" stroke="#18181b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="7" y1="25" x2="10" y2="25" stroke="#18181b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="40" y1="25" x2="43" y2="25" stroke="#18181b" stroke-width="2" stroke-linecap="round"/>
+  <!-- Minute hand (dark, pointing to ~10 o'clock) -->
+  <line x1="25" y1="25" x2="17" y2="12" stroke="#18181b" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Hour hand (orange, pointing to ~5 o'clock / lower right) -->
+  <line x1="25" y1="25" x2="32" y2="36" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+  <!-- Center dot -->
+  <circle cx="25" cy="25" r="2" fill="#f97316"/>
+  <!-- "leads" text - dark, bold -->
+  <text x="55" y="33" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="800" fill="#18181b" letter-spacing="-0.5">leads</text>
+  <!-- "daily" text - orange, regular weight -->
+  <text x="148" y="33" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="400" fill="#f97316" letter-spacing="-0.5">daily</text>
 </svg>
