@@ -122,6 +122,24 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* Video explainer */}
+          <div className="mt-16 flex flex-col items-center">
+            <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-900 shadow-lg dark:border-zinc-700">
+              <div className="relative aspect-video w-full">
+                {/* Replace the placeholder below with your video embed */}
+                {/* <iframe src="YOUR_VIDEO_URL" className="h-full w-full" allow="autoplay; fullscreen" allowFullScreen /> */}
+                <div className="flex h-full w-full flex-col items-center justify-center gap-3 text-zinc-400">
+                  <svg className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p className="text-sm font-medium">See Leadsdaily in action</p>
+                </div>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-zinc-400">60-second explainer — how your leads get found, scored, and delivered</p>
+          </div>
         </div>
       </section>
 
