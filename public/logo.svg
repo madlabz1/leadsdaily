@@ -1,40 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" fill="none">
   <!-- Clock Icon -->
   <g transform="translate(4, 4)">
-    <!-- Outer circle - full white ring -->
-    <circle cx="24" cy="24" r="22" stroke="#ffffff" stroke-width="3.5" fill="none"/>
+    <!-- Outer circle -->
+    <circle cx="24" cy="24" r="22" stroke="#ffffff" stroke-width="3" fill="none"/>
 
-    <!-- Tick marks (12 positions) -->
-    <!-- 12 o'clock -->
-    <line x1="24" y1="4" x2="24" y2="9" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Major tick marks (12, 3, 6, 9) -->
+    <line x1="24" y1="2" x2="24" y2="9" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="46" y1="24" x2="39" y2="24" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="24" y1="46" x2="24" y2="39" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="2" y1="24" x2="9" y2="24" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Minor tick marks -->
     <!-- 1 o'clock -->
-    <line x1="33" y1="6.5" x2="31" y2="11" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    <line x1="33.5" y1="5.5" x2="31" y2="10.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
     <!-- 2 o'clock -->
-    <line x1="39.5" y1="13" x2="35.5" y2="15.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-    <!-- 3 o'clock -->
-    <line x1="44" y1="24" x2="39" y2="24" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="40.5" y1="12.5" x2="36" y2="15.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
     <!-- 4 o'clock -->
-    <line x1="39.5" y1="35" x2="35.5" y2="32.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    <line x1="40.5" y1="35.5" x2="36" y2="32.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
     <!-- 5 o'clock -->
-    <line x1="33" y1="41.5" x2="31" y2="37" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-    <!-- 6 o'clock -->
-    <line x1="24" y1="44" x2="24" y2="39" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="33.5" y1="42.5" x2="31" y2="37.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
     <!-- 7 o'clock -->
-    <line x1="15" y1="41.5" x2="17" y2="37" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    <line x1="14.5" y1="42.5" x2="17" y2="37.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
     <!-- 8 o'clock -->
-    <line x1="8.5" y1="35" x2="12.5" y2="32.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-    <!-- 9 o'clock -->
-    <line x1="4" y1="24" x2="9" y2="24" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="7.5" y1="35.5" x2="12" y2="32.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
     <!-- 10 o'clock -->
-    <line x1="8.5" y1="13" x2="12.5" y2="15.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    <line x1="7.5" y1="12.5" x2="12" y2="15.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
     <!-- 11 o'clock -->
-    <line x1="15" y1="6.5" x2="17" y2="11" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    <line x1="14.5" y1="5.5" x2="17" y2="10.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
 
-    <!-- Minute hand - pointing to ~10 o'clock (upper-left) - white -->
-    <line x1="24" y1="24" x2="12" y2="12" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+    <!-- Minute hand - pointing straight up to 12 o'clock - white -->
+    <line x1="24" y1="24" x2="24" y2="8" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
 
-    <!-- Hour hand - pointing to ~5 o'clock (lower-right) - orange -->
-    <line x1="24" y1="24" x2="31" y2="37" stroke="#f97316" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Hour hand - pointing to 5 o'clock - orange arrow -->
+    <line x1="24" y1="24" x2="31.5" y2="37" stroke="#f97316" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Arrowhead on hour hand -->
+    <polygon points="31.5,37 27,33 33,32.5" fill="#f97316"/>
 
     <!-- Center dot -->
     <circle cx="24" cy="24" r="2.5" fill="#ffffff"/>
