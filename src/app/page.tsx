@@ -77,6 +77,11 @@ export default function Home() {
 
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 py-24 text-center">
+        <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-zinc-200 bg-zinc-950 px-4 py-2 text-sm text-zinc-300 dark:border-zinc-700">
+          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="h-4 w-px bg-zinc-600" />
+          <span className="font-medium tracking-wide text-zinc-100">Powered by Exa</span>
+        </div>
         <h1 className="text-5xl font-bold leading-tight tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-6xl">
           Wake up to qualified leads
           <br />
