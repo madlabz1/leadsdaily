@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const plans = [
   {
@@ -61,7 +62,8 @@ export default function Home() {
     <div className="min-h-screen bg-white dark:bg-zinc-950">
       {/* Header */}
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        <span className="text-lg font-bold text-zinc-900 dark:text-zinc-50">Leadsdaily</span>
+        <Image src="/logo-dark.svg" alt="Leadsdaily" width={160} height={32} className="dark:hidden" />
+        <Image src="/logo.svg" alt="Leadsdaily" width={160} height={32} className="hidden dark:block" />
         <div className="flex items-center gap-4">
           <Link href="/auth/signin" className="text-sm text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
             Sign in

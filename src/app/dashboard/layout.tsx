@@ -3,6 +3,7 @@
 import { useSession, signOut } from "next-auth/react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect } from "react";
 
 const navItems = [
@@ -37,8 +38,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-8">
-            <Link href="/dashboard" className="text-lg font-bold text-zinc-900 dark:text-zinc-50">
-              LeadsDaily
+            <Link href="/dashboard">
+              <Image src="/logo-dark.svg" alt="Leadsdaily" width={140} height={28} className="dark:hidden" />
+              <Image src="/logo.svg" alt="Leadsdaily" width={140} height={28} className="hidden dark:block" />
             </Link>
             <nav className="flex gap-1">
               {navItems.map((item) => (
