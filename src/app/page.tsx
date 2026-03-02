@@ -51,7 +51,7 @@ const plans = [
 
 function CheckIcon() {
   return (
-    <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg className="h-4 w-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
     </svg>
   );
@@ -65,12 +65,12 @@ export default function Home() {
         <Image src="/logo-dark.svg" alt="Leadsdaily" width={200} height={40} className="dark:hidden" />
         <Image src="/logo.svg" alt="Leadsdaily" width={200} height={40} className="hidden dark:block" />
         <div className="flex items-center gap-4">
-          <Link href="/auth/signin" className="text-sm text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50">
+          <Link href="/auth/signin" className="text-sm text-zinc-500 hover:text-orange-500 dark:text-zinc-400 dark:hover:text-orange-400">
             Sign in
           </Link>
           <Link
             href="/auth/signin"
-            className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900"
+            className="rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600"
           >
             Get started
           </Link>
@@ -80,14 +80,14 @@ export default function Home() {
       {/* Hero */}
       <section className="mx-auto max-w-4xl px-6 py-24 text-center">
         <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-zinc-200 bg-zinc-950 px-4 py-2 text-sm text-zinc-300 dark:border-zinc-700">
-          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="h-2 w-2 rounded-full bg-orange-400 animate-pulse" />
           <span className="h-4 w-px bg-zinc-600" />
           <span className="font-medium tracking-wide text-zinc-100">Powered by Exa</span>
         </div>
         <h1 className="text-5xl font-bold leading-tight tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-6xl">
           Wake up to qualified leads
           <br />
-          <span className="text-zinc-400">every morning</span>
+          <span className="text-orange-500">every morning</span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-500 dark:text-zinc-400">
           Describe your ideal customer. Our AI searches the web daily using Exa to find companies that match — then delivers the top leads straight to your inbox.
@@ -95,11 +95,11 @@ export default function Home() {
         <div className="mt-8 flex items-center justify-center gap-4">
           <Link
             href="/auth/signin"
-            className="rounded-lg bg-zinc-900 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900"
+            className="rounded-lg bg-orange-500 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-orange-600"
           >
             Start for free
           </Link>
-          <a href="#how-it-works" className="text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400">
+          <a href="#how-it-works" className="text-sm font-medium text-zinc-500 hover:text-orange-500 dark:text-zinc-400">
             See how it works
           </a>
         </div>
@@ -116,7 +116,7 @@ export default function Home() {
               { step: "3", title: "Leads hit your inbox", desc: "Every morning, your top leads arrive in your email. Mark them good or bad to improve results." },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-zinc-900 text-sm font-bold text-white dark:bg-zinc-50 dark:text-zinc-900">
+                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-sm font-bold text-white">
                   {item.step}
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-zinc-900 dark:text-zinc-50">{item.title}</h3>
@@ -127,12 +127,12 @@ export default function Home() {
 
           {/* Video explainer */}
           <div className="mt-16 flex flex-col items-center">
-            <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-900 shadow-lg dark:border-zinc-700">
+            <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-orange-200 bg-zinc-900 shadow-lg dark:border-orange-500/30">
               <div className="relative aspect-video w-full">
                 {/* Replace the placeholder below with your video embed */}
                 {/* <iframe src="YOUR_VIDEO_URL" className="h-full w-full" allow="autoplay; fullscreen" allowFullScreen /> */}
                 <div className="flex h-full w-full flex-col items-center justify-center gap-3 text-zinc-400">
-                  <svg className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-16 w-16 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -159,12 +159,12 @@ export default function Home() {
                 key={plan.name}
                 className={`relative rounded-2xl border p-8 ${
                   plan.highlighted
-                    ? "border-zinc-900 bg-white shadow-lg dark:border-zinc-50 dark:bg-zinc-900"
+                    ? "border-orange-500 bg-white shadow-lg dark:border-orange-500 dark:bg-zinc-900"
                     : "border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900"
                 }`}
               >
                 {plan.highlighted && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-zinc-900 px-3 py-1 text-xs font-medium text-white dark:bg-zinc-50 dark:text-zinc-900">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-orange-500 px-3 py-1 text-xs font-medium text-white">
                     Most popular
                   </span>
                 )}
@@ -188,8 +188,8 @@ export default function Home() {
                   href="/auth/signin"
                   className={`mt-6 block w-full rounded-lg px-4 py-3 text-center text-sm font-medium transition-colors ${
                     plan.highlighted
-                      ? "bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900"
-                      : "border border-zinc-300 text-zinc-900 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-800"
+                      ? "bg-orange-500 text-white hover:bg-orange-600"
+                      : "border border-zinc-300 text-zinc-900 hover:bg-orange-50 hover:border-orange-300 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-orange-500/10 dark:hover:border-orange-500/50"
                   }`}
                 >
                   {plan.cta}

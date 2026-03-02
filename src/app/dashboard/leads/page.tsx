@@ -54,7 +54,7 @@ export default function LeadsPage() {
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-300 border-t-zinc-900" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-300 border-t-orange-500" />
         </div>
       ) : leads.length === 0 ? (
         <div className="mt-8 rounded-xl border border-zinc-200 bg-white p-12 text-center dark:border-zinc-800 dark:bg-zinc-900">
@@ -75,11 +75,11 @@ export default function LeadsPage() {
                         href={lead.company_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-lg font-semibold text-zinc-900 hover:underline dark:text-zinc-50"
+                        className="text-lg font-semibold text-zinc-900 hover:text-orange-500 hover:underline dark:text-zinc-50"
                       >
                         {lead.company_name}
                       </a>
-                      <span className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+                      <span className="rounded-full bg-orange-50 px-2.5 py-0.5 text-xs font-medium text-orange-600 dark:bg-orange-500/10 dark:text-orange-400">
                         Score: {lead.relevance_score}
                       </span>
                     </div>
@@ -91,7 +91,7 @@ export default function LeadsPage() {
                           .map(([key, value]) => (
                             <span
                               key={key}
-                              className="rounded bg-blue-50 px-2 py-0.5 text-xs text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
+                              className="rounded bg-orange-50 px-2 py-0.5 text-xs text-orange-700 dark:bg-orange-900/30 dark:text-orange-300"
                             >
                               {key}: {value}
                             </span>

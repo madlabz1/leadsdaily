@@ -67,7 +67,7 @@ export default function Onboarding() {
           <div
             key={s}
             className={`h-1.5 flex-1 rounded-full ${
-              s <= step ? "bg-zinc-900 dark:bg-zinc-50" : "bg-zinc-200 dark:bg-zinc-800"
+              s <= step ? "bg-orange-500" : "bg-zinc-200 dark:bg-zinc-800"
             }`}
           />
         ))}
@@ -84,13 +84,13 @@ export default function Onboarding() {
               value={businessName}
               onChange={(e) => setBusinessName(e.target.value)}
               placeholder="Acme Corp"
-              className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-zinc-900 focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50"
+              className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-orange-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50"
             />
           </div>
           <button
             onClick={() => setStep(2)}
             disabled={!businessName}
-            className="w-full rounded-lg bg-zinc-900 px-4 py-3 font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-zinc-50 dark:text-zinc-900"
+            className="w-full rounded-lg bg-orange-500 px-4 py-3 font-medium text-white transition-colors hover:bg-orange-600 disabled:opacity-50"
           >
             Next
           </button>
@@ -111,7 +111,7 @@ export default function Onboarding() {
               onChange={(e) => setIcpDescription(e.target.value)}
               rows={6}
               placeholder="B2B SaaS companies with 10-50 employees in the US that recently raised funding and are hiring sales roles. They use Stripe or HubSpot and sell to small businesses."
-              className="mt-2 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-zinc-900 focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50"
+              className="mt-2 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-orange-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50"
             />
           </div>
           <div className="flex gap-3">
@@ -124,7 +124,7 @@ export default function Onboarding() {
             <button
               onClick={() => setStep(3)}
               disabled={!icpDescription}
-              className="flex-1 rounded-lg bg-zinc-900 px-4 py-3 font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-zinc-50 dark:text-zinc-900"
+              className="flex-1 rounded-lg bg-orange-500 px-4 py-3 font-medium text-white transition-colors hover:bg-orange-600 disabled:opacity-50"
             >
               Next
             </button>
@@ -146,7 +146,7 @@ export default function Onboarding() {
               value={deliveryEmail}
               onChange={(e) => setDeliveryEmail(e.target.value)}
               placeholder="you@company.com"
-              className="mt-2 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-zinc-900 focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50"
+              className="mt-2 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-orange-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50"
             />
           </div>
           {error && <p className="text-sm text-red-500">{error}</p>}
@@ -160,7 +160,7 @@ export default function Onboarding() {
             <button
               onClick={handleSubmit}
               disabled={loading || !deliveryEmail}
-              className="flex-1 rounded-lg bg-zinc-900 px-4 py-3 font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-zinc-50 dark:text-zinc-900"
+              className="flex-1 rounded-lg bg-orange-500 px-4 py-3 font-medium text-white transition-colors hover:bg-orange-600 disabled:opacity-50"
             >
               {loading ? "Setting up..." : "Start finding leads"}
             </button>

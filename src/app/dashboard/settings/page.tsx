@@ -119,7 +119,7 @@ export default function SettingsPage() {
       <div className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
         <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">Your plan</h2>
         <div className="mt-3 flex items-center gap-3">
-          <span className="rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-zinc-900 dark:bg-zinc-800 dark:text-zinc-50">
+          <span className="rounded-full bg-orange-50 px-3 py-1 text-sm font-medium text-orange-600 dark:bg-orange-500/10 dark:text-orange-400">
             {currentPlan.name}
           </span>
           <span className="text-sm text-zinc-500 dark:text-zinc-400">
@@ -133,14 +133,14 @@ export default function SettingsPage() {
             <button
               onClick={() => handleUpgrade("pro")}
               disabled={upgrading !== null}
-              className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-zinc-50 dark:text-zinc-900"
+              className="rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600 disabled:opacity-50"
             >
               {upgrading === "pro" ? "Redirecting..." : "Upgrade to Pro — $49/mo"}
             </button>
             <button
               onClick={() => handleUpgrade("business")}
               disabled={upgrading !== null}
-              className="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-50 disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-800"
+              className="rounded-lg border border-orange-300 px-4 py-2 text-sm font-medium text-orange-600 transition-colors hover:bg-orange-50 disabled:opacity-50 dark:border-orange-500/50 dark:text-orange-400 dark:hover:bg-orange-500/10"
             >
               {upgrading === "business" ? "Redirecting..." : "Upgrade to Business — $99/mo"}
             </button>
@@ -151,7 +151,7 @@ export default function SettingsPage() {
             <button
               onClick={() => handleUpgrade("business")}
               disabled={upgrading !== null}
-              className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-zinc-50 dark:text-zinc-900"
+              className="rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600 disabled:opacity-50"
             >
               {upgrading === "business" ? "Redirecting..." : "Upgrade to Business — $99/mo"}
             </button>
@@ -169,14 +169,14 @@ export default function SettingsPage() {
           value={icpDescription}
           onChange={(e) => setIcpDescription(e.target.value)}
           rows={4}
-          className="mt-3 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-zinc-900 focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50"
+          className="mt-3 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-orange-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50"
         />
         {icp && (
           <div className="mt-3">
             <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400">Generated queries:</p>
             <div className="mt-1 flex flex-wrap gap-1.5">
               {icp.generated_queries.map((q, i) => (
-                <span key={i} className="rounded bg-zinc-100 px-2 py-1 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+                <span key={i} className="rounded bg-orange-50 px-2 py-1 text-xs text-orange-600 dark:bg-orange-500/10 dark:text-orange-400">
                   {q}
                 </span>
               ))}
@@ -186,7 +186,7 @@ export default function SettingsPage() {
         <button
           onClick={updateIcp}
           disabled={updatingIcp || icpDescription === icp?.description}
-          className="mt-4 rounded-lg bg-zinc-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-zinc-50 dark:text-zinc-900"
+          className="mt-4 rounded-lg bg-orange-500 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-orange-600 disabled:opacity-50"
         >
           {updatingIcp ? "Updating..." : "Update ICP"}
         </button>
@@ -232,12 +232,12 @@ export default function SettingsPage() {
             value={newEmail}
             onChange={(e) => setNewEmail(e.target.value)}
             placeholder="you@company.com"
-            className="flex-1 rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 focus:border-zinc-900 focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50"
+            className="flex-1 rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 focus:border-orange-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-50"
           />
           <button
             onClick={addEmail}
             disabled={addingEmail || !newEmail}
-            className="rounded-lg bg-zinc-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-zinc-50 dark:text-zinc-900"
+            className="rounded-lg bg-orange-500 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-orange-600 disabled:opacity-50"
           >
             {addingEmail ? "Adding..." : "Add email"}
           </button>

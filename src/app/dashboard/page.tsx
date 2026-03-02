@@ -31,7 +31,7 @@ export default function Dashboard() {
   if (hasIcp === null) {
     return (
       <div className="flex items-center justify-center py-20">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-300 border-t-zinc-900" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-300 border-t-orange-500" />
       </div>
     );
   }
@@ -50,7 +50,7 @@ export default function Dashboard() {
         </div>
         <div className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
           <p className="text-sm text-zinc-500 dark:text-zinc-400">Marked as good</p>
-          <p className="mt-2 text-3xl font-bold text-green-600">{stats.goodLeads}</p>
+          <p className="mt-2 text-3xl font-bold text-orange-500">{stats.goodLeads}</p>
         </div>
         <div className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
           <p className="text-sm text-zinc-500 dark:text-zinc-400">Last search run</p>

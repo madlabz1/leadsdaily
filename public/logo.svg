@@ -1,17 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 50" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 50" fill="none">
   <!-- Compass/Arrow Icon -->
   <g transform="translate(2, 2)">
-    <!-- Outer circle arc - dark gray -->
-    <path d="M23 2C11.4 2 2 11.4 2 23s9.4 21 21 21c9.2 0 17-5.9 19.9-14.1" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
-    <!-- Orange arc segment -->
-    <path d="M42.9 18.9C41.7 10.1 34.9 3.3 26.1 2.1" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
-    <!-- Arrow/compass pointer - orange -->
-    <polygon points="23,8 30,23 23,20 16,23" fill="#f97316"/>
-    <!-- Arrow bottom - dark -->
-    <polygon points="23,38 16,23 23,26 30,23" fill="#ffffff"/>
+    <!-- Outer circle arc - thick, dark, covers ~270 degrees from bottom-left around -->
+    <path d="M38 6.5C32.5 3 26 1.5 19.5 2.5C8.5 4.5 1 14 1 25c0 12.2 9.8 22 22 22 8.5 0 15.9-4.8 19.6-11.8" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <!-- Orange arc segment - top right portion -->
+    <path d="M42.6 13.2C39.8 7.5 34.5 3.5 28.5 2" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <!-- Paper plane / compass arrow pointing upper-right -->
+    <!-- Orange top-right portion of arrow -->
+    <polygon points="35,9 23,23 27,21" fill="#f97316"/>
+    <polygon points="35,9 27,21 23,23" fill="#f97316"/>
+    <!-- Dark bottom-left portion of arrow -->
+    <polygon points="11,37 23,23 19,25" fill="#ffffff"/>
+    <polygon points="11,37 19,25 23,23" fill="#ffffff"/>
+    <!-- Orange small accent on arrow -->
+    <polygon points="35,9 23,23 21,19" fill="#f97316"/>
+    <!-- Dark accent on bottom arrow -->
+    <polygon points="11,37 23,23 25,27" fill="#ffffff"/>
   </g>
   <!-- Text -->
-  <text x="56" y="35" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="28" font-weight="700" letter-spacing="-0.5">
-    <tspan fill="#ffffff">leads</tspan><tspan fill="#f97316">daily</tspan>
+  <text x="54" y="36" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="30" letter-spacing="-0.5">
+    <tspan fill="#ffffff" font-weight="800">leads</tspan><tspan fill="#f97316" font-weight="400">daily</tspan>
   </text>
 </svg>

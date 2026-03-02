@@ -26,7 +26,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   if (status === "loading") {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-300 border-t-zinc-900" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-300 border-t-orange-500" />
       </div>
     );
   }
@@ -49,8 +49,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                   href={item.href}
                   className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                     pathname === item.href
-                      ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-50"
-                      : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
+                      ? "bg-orange-50 text-orange-600 dark:bg-orange-500/10 dark:text-orange-400"
+                      : "text-zinc-500 hover:text-orange-500 dark:text-zinc-400 dark:hover:text-orange-400"
                   }`}
                 >
                   {item.label}
@@ -62,7 +62,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <span className="text-sm text-zinc-500 dark:text-zinc-400">{session.user?.email}</span>
             <button
               onClick={() => signOut({ callbackUrl: "/" })}
-              className="rounded-lg px-3 py-2 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
+              className="rounded-lg px-3 py-2 text-sm text-zinc-500 transition-colors hover:text-orange-500 dark:text-zinc-400 dark:hover:text-orange-400"
             >
               Sign out
             </button>
